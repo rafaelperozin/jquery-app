@@ -1,0 +1,72 @@
+{
+  "name": "xigen-theme",
+  "version": "1.0.0",
+  "description": "See readme.md for instructions",
+  "main": "gulpfile.babel.js",
+  "scripts": {
+    "build": "gulp build",
+    "start": "gulp watch"
+  },
+  "author": "Rafael Perozin",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.11.0",
+    "@babel/plugin-transform-runtime": "^7.5.5",
+    "@babel/polyfill": "^7.10.4",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/register": "^7.5.5",
+    "@fortawesome/fontawesome-free": "^5.10.1",
+    "autoprefixer": "^9.6.1",
+    "babelify": "^10.0.0",
+    "browserify": "^16.3.0",
+    "core-js": "^3",
+    "del": "4.1.1",
+    "fs-web": "^1.0.1",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^6.1.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean-css": "^4.2.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-sourcemaps": "2.6.5",
+    "gulp-uglify": "3.0.2",
+    "requirejs": "^2.3.6",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0"
+  },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": "> 0.25%, not dead",
+          "useBuiltIns": "usage",
+          "corejs": 3
+        }
+      ]
+    ],
+    "plugins": [
+      [
+        "@babel/transform-runtime"
+      ]
+    ]
+  },
+  "browserslist": [
+    "last 2 versions",
+    "ie >= 10",
+    "edge >= 15",
+    "ie_mob >= 10",
+    "ff >= 45",
+    "chrome >= 45",
+    "safari >= 5",
+    "opera >= 23",
+    "ios >= 7",
+    "android >= 4",
+    "bb >= 10"
+  ],
+  "dependencies": {
+    "@babel/runtime": "^7.5.5",
+    "jquery": "^3.4.1"
+  }
+}

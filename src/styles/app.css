@@ -1,0 +1,223 @@
+/* I like to use SASS but to follow the current project standards I'm still using CSS */
+/* But I removed the unused styles */
+
+/* Reset some properties */
+html {
+	font-size: 16px;
+}
+
+/* Patterns of the project */
+:root {
+	--main-font-color: #666;
+	--main-font-size: 1.125rem;
+	--title-font-size: 1.5rem;
+}
+
+body {
+	padding-top: 50px;
+	padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.navbar-collapse {
+	padding-bottom: 15px;
+}
+
+.navbar-nav__button {
+	background-color: transparent;
+    border: none;
+    color: #9d9d9d;
+    padding: 15px;
+}
+
+.navbar-nav__button:hover {
+	color: #fff;
+}
+
+.navbar-nav__button:focus {
+	outline: none;
+}
+
+/* MODAL ------------------------------------------ */
+/* What I think will be reusable for other modals */
+.modal-dialog {
+	position: relative;
+	top: 50%;
+	/* The !important is the worst CSS practise ever, but when we are using bootstrap, sometimes, it's required */
+	/* The same (bad practise) for negative values, but this is smart way to vertically centralize elements. */
+    transform: translateY(-50%) !important;
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.modal-content {
+	border-radius: 0 ;
+	/* I prefer to use rem instead of px to be responsive, but in this case, the padding is the same on mobile and desktop */
+	padding: 40px;
+}
+
+.modal-header {
+	padding: 0;
+	border-bottom: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.modal-title {
+	flex-grow: 1;
+	font-size: var(--title-font-size);
+	font-weight: normal;
+	color: var(--main-font-color);
+}
+
+.modal-content button.close {
+	width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	opacity: 1;
+}
+
+.modal-content button.close:hover {
+    opacity: .7;
+}
+
+.modal-body {
+	padding: 0;
+}
+
+.modal-footer {
+	border-top: none;
+	padding: 0;
+    margin-top: 60px;
+}
+
+.modal button.btn {
+	border-radius: 0;
+    width: 100px;
+    height: 40px;
+    font-size: var(--main-font-size);
+}
+
+/* MODAL: Order ---------------------------------- */
+/* Specific styles for order modal */
+.order-items__item {
+	/* Display flex make our life easier and it's IE friendly (except flex-direction) */
+	/* I only use grid just for specific situations and without the autoprefixer plugin we need to be careful with IE */
+	display: flex;
+    justify-content: flex-start;
+    align-items: center;
+	margin-bottom: 20px;
+}
+
+/* I do avoid using HTML tags on the CSS but in this case, I must use due to :last-child */
+div.order-items__item:last-child {
+	margin-bottom: 0;
+}
+
+/* Save some lines of code */
+.order-items__figure, 
+.order-items__name, 
+.order-items__field {
+	margin-right: 10px;
+}
+
+.order-items__figure {
+	display: none;
+}
+
+.order-items__name {
+	flex-grow: 1;
+	font-size: var(--main-font-size);
+	color: var(--main-font-color);
+	/* Hide part of text and add dots if the name is too big */
+	white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.order-items__field {
+	display: flex;
+}
+
+.order-items__qty-btn {
+	width: 30px;
+    height: 30px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.order-items__qty {
+	width: 40px;
+    height: 30px;
+	margin: 0 10px;
+	text-align: center;
+	font-size: var(--main-font-size);
+	color: var(--main-font-color);
+	border: 1px solid #ccc;
+}
+/* To remove the arrows on the input field when on desktop */
+input.order-items__qty::-webkit-outer-spin-button,
+input.order-items__qty::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+input.order-items__qty {
+	-moz-appearance:textfield;
+}
+
+.order-items__price {
+	min-width: 70px;
+	text-align: right;
+	color: var(--main-font-color);
+}
+
+.order-total {
+	display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.order-total__title,
+.order-total__price {
+	margin-bottom: 0;
+	font-weight: 700;
+	font-size: var(--main-font-size);
+	color: var(--main-font-color);
+}
+
+[data-warning="balance"] {
+	color: darkred;
+	margin-bottom: 10px;
+}
+[data-warning="balance"] a {
+	color: inherit;
+	text-decoration: underline;
+	font-weight: 800;
+}
+[data-warning="balance"] a:hover {
+	color: red;
+}
+
+/* Mobile-first, so I change for desktop */
+@media screen and (min-width: 480px) {
+
+	.modal-dialog {
+		margin: auto;
+	}
+	.order-items__figure {
+		display: block;
+	}
+
+}

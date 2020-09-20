@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Front-end -- Challenge</title>
+    <link rel="stylesheet" type="text/css" href="./node_modules/bootstrap/dist/css/bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="./styles/app.css" />
+	<!-- For icons I prefer to use fontawesome, so I add an example how I can do it on this case -->
+	<!-- But you added icons images on the project, so I presume it's required, so I'm keeping it -->
+	<!-- Include only the family you will use to affect less as possible the loading time -->
+	<!-- <link rel="stylesheet" href="./styles/vendor/solid.min.css"> -->
+</head>
+<body>
+	<!-- I did a few changes on the HTML tags improve the semantics -->
+	<header class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<nav class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="/index.html">Home</a></li>
+					<!-- It's open and modal and not link to a page, so I changed the HTML tag to a button -->
+					<li><button type="button" class="navbar-nav__button" data-action="open-order-modal" data-toggle="modal" data-target="#orderModal">Buy</button></li>
+				</ul>
+				<!-- If I'm doing from scratch I prefer to use data attributes instead id as we will have JS manipulation -->
+				<!-- Anyone that sees a data attribute can quickly know the element has JS manipulation and ID doesn't make it explicit -->
+				<span class="navbar-right navbar-text"><span id="gold-balance"></span> gold</span>
+			</nav>
+		</div>
+	</header>
+	<main class="container body-content">
+		<h2>Hello, <span id="user-name"></span></h2>
+        <p>Have a nice day</p>
+		<h2>Current stocks</h2>
+		<div id="stock"></div>
+	</main>
+	<footer class="container footer-cont">
+		<hr />
+		<div class="row"></div>
+			<p>&copy; 2019 - New Day at Work</p>
+		</div>
+	</footer>
+
+	<!-- Modal -->
+	<div class="modal fade" id="orderModal" tabindex="-1">
+		<div class="modal-dialog modal-dialog-centered modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Order</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<img src="./assets/icons/cross.png" alt="Close">
+					</button>
+				</div>
+				<div class="modal-body order">
+					<div class="order-items" data-items-role="list">
+						<div class="order-items__loading">Searching items...</div>
+					</div>
+					<div class="order-total">
+						<p class="order-total__title">Total</p>
+						<p class="order-total__price"><span class="order__value" data-order-role="total-value">0</span> gold</p>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-order-role="buy">Buy</button>
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- I prefer to use a gulp setup to compile and minify all JS and CSS files, but the task is to add a new feature and not redo the whole code. -->
+	<!-- So to follow the instructions and met the deadlines, I keep calling this files separated -->
+    <script type="text/javascript" src="./node_modules/jquery/dist/jquery.js"></script>
+	<script type="text/javascript" src="./node_modules/bootstrap/dist/js/bootstrap.js"></script>
+	<script type="text/javascript" src="./scripts/service.js"></script>
+	<script type="text/javascript" src="./scripts/items.js"></script>
+	<script type="text/javascript" src="./scripts/order.js"></script>
+    <script type="text/javascript" src="./scripts/app.js"></script>
+</body>
+</html>

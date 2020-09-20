@@ -1,0 +1,17 @@
+<div class="order-items__item" data-role="item">
+    <figure class="order-items__figure">
+        <img src="%img-src%" alt="%img-alt%" class="order-items__image">
+    </figure>
+    <div class="order-items__name">%item-name%</div>
+    <div class="order-items__field">
+        <button type="button" class="order-items__qty-btn" data-qty="reduce">
+            <img src="../assets/icons/minus.png" alt="Reduce" class="order-items__btn-image">
+        </button>
+        <!-- It's essential to use the right type of input because this will affect the mobile UX -->
+        <input type="number" name="qty" min="1" max="%max-qty%" step="1" class="order-items__qty" data-qty="input">
+        <button type="button" class="order-items__qty-btn" data-qty="add">
+            <img src="../assets/icons/plus.png" alt="Add" class="order-items__btn-image">
+        </button>
+    </div>
+    <div class="order-items__price"><span data-role="item-price">%item-price%</span> gold</div>
+</div>
